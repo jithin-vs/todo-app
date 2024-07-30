@@ -1,0 +1,32 @@
+/* src/components/Header.css */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items to the top */
+  padding: 10px 20px;
+  background: #333;
+  color: #fff;
+  width: 100%;
+  top: 0;
+  left: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.header-name {
+  font-size: 1.5em;
+}
+
+.header-fields {
+  display: flex;
+  gap: 20px;
+}
+
+.header-fields div {
+  cursor: pointer;
+}
