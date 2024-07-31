@@ -10,8 +10,8 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleUsernameChange = (value) => setUsername(value);
-  const handlePasswordChange = (value) => setPassword(value);
+  const handleUsernameChange = (e) => setUsername(e.target.value);
+  const handlePasswordChange = (e) => setPassword(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,12 +21,11 @@ const Login = () => {
         username,
         password
       });
-      console.log(response);
-      if (response.token) {
+      console.log(response.data);
+      if (response.data.token) {
         const token = response.data.token;
-        const userData = response.data.userData;
         localStorage.setItem('token', token);
-        navigate('/home')
+        navigate('/home');
       }
 
     } catch (err) {
@@ -38,9 +37,9 @@ const Login = () => {
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit} >
         <h2>Login</h2>
-          <TextField inputType ='text'  onChange={handleUsernameChange}/> 
-          <TextField inputType='password' onChange={handlePasswordChange}/>
-          <Button onClick={handleSubmit}>Login</Button>
+        <TextField inputType='text' value={username} onChange={handleUsernameChange} placeholder="Username" />
+        <TextField inputType='password' value={password} onChange={handlePasswordChange} placeholder="Password" />
+          <Button btnType='submit' onClick={handleSubmit}>Login</Button>
         <div className="new-user-link">
           <Link to="/register">Create a new user</Link>
         </div>

@@ -4,22 +4,20 @@ import jwt from "jsonwebtoken";
 configDotenv();
 
 function verifyToken(req, res, next) {
-  const header = req.headers.authorization;
-  const token = header.split(" ")[1];
-  // console.log(token);
   try {
-    const verfied = jwt.verify(token, process.env.SECRET_KEY);
-    if (!verfied) return res.status(401).json({ message: "user not verified" });
+    const header = req.headers.authorization || '';
+    console.log("this one:",header);
+    const token = header.split(" ")[1];
+    const decoded = jwt.verify(token, process.env.SECRET_KEY);
+    if (!decoded) return res.status(401).json({ message: "user not verified" });
+    req.user = decoded;
     next();
   } catch (error) {
     if (error instanceof jwt.JsonWebTokenError) {
-      return res
-        .status(401)
-        .json({ message: "Invalid token. Unauthorized access!" });
+      return res.status(401).json({ message: "Invalid token. Unauthorized access!" });
     }
-    res
-      .status(500)
-      .json({ message: "could not verify user. Internal server error!!" });
+    res.status(500).json({ message: "could not verify user. Internal server error!!" });
+    console.log(error);
   }
 }
 

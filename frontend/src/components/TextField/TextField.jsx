@@ -1,28 +1,22 @@
 import React, { useState } from 'react';
-import './textField.css'
+import './textField.css';
 
-const TextField = ({ inputType,onChange, children}) => {
-    const [value, setValue] = useState('');
-
-    const handleChange = (e) => {
-        setValue(e.target.value);
-        onChange(e.target.value);
-    };
-    
-    return (
-        <div className="form-group">
-          <label className="form-label">
-            {children}
-          </label>
-          <input
-            type={inputType}
-            value={value}
-            onChange={handleChange}
-            required
-          />
-        </div>
-      );
-    return null;
+const TextField = ({ inputType, value, onChange, placeholder,children, ...rest }) => {
+  return (
+    <div className="form-group">
+      <label className="form-label">
+        {children}
+      </label>
+      <input
+        type={inputType}
+        value={value}
+        onChange={(e) => onChange(e)}
+        placeholder={placeholder}
+        className="text-field"
+        {...rest}
+      />
+    </div>
+  );
 };
 
 export default TextField;

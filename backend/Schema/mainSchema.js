@@ -10,6 +10,7 @@ const userSchema = new Schema({
 });
 
 const todoSchema = new Schema({
+    id: {type: String, unique : true},
     username: { type: String },
     title: { type: String },
     description: { type: String },
@@ -20,4 +21,4 @@ const todoSchema = new Schema({
 const User = mongoose.model('User', userSchema);
 const Todo = mongoose.model("Todo", todoSchema);
 
-export { User };
+export { User,Todo };

@@ -48,7 +48,7 @@ const Register = () => {
         <TextField inputType="text"  label="Username" onChange={handleUsernameChange}>Username</TextField>
         <TextField inputType="password" label="Password" onChange={handlePasswordChange}>Password</TextField>
         <TextField inputType="password" label="Re-enter Password" onChange={handleRePasswordChange}>Re enter Password</TextField>
-        <Button type="submit">Register</Button>
+        <Button btnType='submit'>Register</Button>
         <div className="login-link">
           <Link to="/login">Already have an account? Login</Link>
         </div>

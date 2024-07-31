@@ -1,0 +1,52 @@
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    width: 400px; 
+    height: 100px; 
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-body {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 1rem;
+    padding: 1rem;
+    min-width: 200px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .card-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    margin-top: 16px;
+  }
+  .card-title {
+    margin: 0;
+    flex-shrink: 1; 
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.2em;
+  }
+  
+  .card-description {
+    margin: 10px 0 0;
+    color: #e7e4e4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+  

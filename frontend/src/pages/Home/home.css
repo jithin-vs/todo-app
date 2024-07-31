@@ -1,0 +1,21 @@
+.task-form {
+    margin-top: 20px;
+  }
+  
+  .task-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .task-form div {
+    margin-bottom: 10px;
+  }
+  
+  .task-form label {
+    margin-bottom: 5px;
+  }
+  .card-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
