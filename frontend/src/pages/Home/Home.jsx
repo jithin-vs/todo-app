@@ -37,20 +37,6 @@ const Home = () => {
     setNewTask((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleComplete = async(id) => {
-    try {
-      const response = await axios.put(`http://localhost:3000/completeTodo/${id}`, 
-        {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      setData(data.filter(item => item.id !== response.data.id));
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-
   const handleDelete = async(id) => {
     try {
       const response = await axios.delete(`http://localhost:3000/deleteTodo/${id}`, 
@@ -101,7 +87,6 @@ const Home = () => {
               id={item.id}
               description={item.description}
               title={item.title}
-              onComplete={handleComplete}
               onDelete={handleDelete}
             >
             </Card>

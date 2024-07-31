@@ -6,7 +6,6 @@ configDotenv();
 function verifyToken(req, res, next) {
   try {
     const header = req.headers.authorization || '';
-    console.log("this one:",header);
     const token = header.split(" ")[1];
     const decoded = jwt.verify(token, process.env.SECRET_KEY);
     if (!decoded) return res.status(401).json({ message: "user not verified" });

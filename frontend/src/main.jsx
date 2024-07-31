@@ -6,6 +6,9 @@ import Home from './pages/Home/Home.jsx'
 import Register from './pages/Register/Register.jsx'
 import Layout from './components/Layout/Layout.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import store from "./store/store";
+import { Provider } from "react-redux";
+import ProtectedRoute from './components/Protected Route/ProtectedRoute.jsx'
 
 const router = createBrowserRouter([{
   path: '/',
@@ -19,12 +22,14 @@ const router = createBrowserRouter([{
   },
   {
     path: '/home',
-    element: <Layout><Home /></Layout>
-    },
+    element: <ProtectedRoute element={<Layout><Home /></Layout>}/>
+  },
 ])
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  </React.StrictMode>
+);

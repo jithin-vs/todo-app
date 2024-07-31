@@ -84,11 +84,12 @@ router.post("/addTodo",verifyToken,async (req, res) => {
   }
   
 });
-router.put("/completeTodo/:id",verifyToken,async (req, res) => {
-  const user = req.user.userData;
-  const username = user.username;
-  const id = req.params.id;
+router.put("/completeTodo/:id",async (req, res) => {
   try {
+    const user = { username:'jithin123'};
+    const username = user.username;
+    const id = req.params.id;
+    console.log(id);
     const updated_todo = await Todo.findOneAndUpdate(
       { id: id , username:username },
       { progress:'completed' },
