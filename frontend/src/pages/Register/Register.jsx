@@ -12,11 +12,11 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
 
-  const handleNameChange = (value) => setName(value);
-  const handleEmailChange = (value) => setEmail(value);
-  const handleUsernameChange = (value) => setUsername(value);
-  const handlePasswordChange = (value) => setPassword(value);
-  const handleRePasswordChange = (value) => setRePassword(value);
+  const handleNameChange = (e) => setName(e.target.value);
+  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handleUsernameChange = (e) => setUsername(e.target.value);
+  const handlePasswordChange = (e) => setPassword(e.target.value);
+  const handleRePasswordChange = (e) => setRePassword(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,7 +48,7 @@ const Register = () => {
         <TextField inputType="text"  label="Username" onChange={handleUsernameChange}>Username</TextField>
         <TextField inputType="password" label="Password" onChange={handlePasswordChange}>Password</TextField>
         <TextField inputType="password" label="Re-enter Password" onChange={handleRePasswordChange}>Re enter Password</TextField>
-        <Button btnType='submit'>Register</Button>
+        <Button btnType='submit' onClick ={handleSubmit}>Register</Button>
         <div className="login-link">
           <Link to="/login">Already have an account? Login</Link>
         </div>

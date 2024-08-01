@@ -29,7 +29,7 @@ const Header = () => {
         <Link to="/">Home</Link>
         {isAuthenticated ? (
           <>
-            <button onClick={handleLogout}>Logout</button>
+            <p onClick={handleLogout}>Logout</p>
           </>
         ) : (
           <Link to="/login">Login</Link>

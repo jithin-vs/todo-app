@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Navigate } from 'react-router-dom';
+
 
 const initialState = {
   token: null,
@@ -13,6 +13,7 @@ export const authSlice = createSlice({
     login: (state, action) => {
       state.token = action.payload.token;
       state.isAuthenticated = true;
+      console.log("state=",state.isAuthenticated);
       localStorage.setItem('token', action.payload.token);
     },
     logout: (state) => {
