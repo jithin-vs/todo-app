@@ -5,15 +5,15 @@ import Login from './pages/Login/Login.jsx'
 import Home from './pages/Home/Home.jsx'
 import Register from './pages/Register/Register.jsx'
 import Layout from './components/Layout/Layout.jsx'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import store from "./store/store";
 import { Provider } from "react-redux";
 import ProtectedRoute from './components/Protected Route/ProtectedRoute.jsx'
 
 const router = createBrowserRouter([{
   path: '/',
-  element: <Layout><Home /></Layout>
-}, {
+  element: <Navigate to="/login" replace={true} />
+  }, {
   path: '/login',
   element: <Layout><Login /></Layout>
   }, {

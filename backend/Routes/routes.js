@@ -74,7 +74,6 @@ router.post("/addTodo",verifyToken,async (req, res) => {
       username,
       title,
       description,
-      progress:'in progress'
   });
   const updatedTodo = await newTodo.save();
   res.status(201).json({ data:updatedTodo , message: "Task saved successfully" });
