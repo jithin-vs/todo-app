@@ -77,6 +77,9 @@ const Home = () => {
 
   return (
     <div className='main-body'>
+     <div className='task-button'>
+         <Button btnType='new-task-btn' onClick={handleAddTask}>+</Button>
+      </div>
       <div className="card-container">
       {data.length === 0 ? (
         <p>No Tasks</p>
@@ -88,14 +91,10 @@ const Home = () => {
               description={item.description}
               title={item.title}
               onDelete={handleDelete}
-            >
-            </Card>
+            />
           )
       )}
-      </div>
-      <div className='task-button'>
-         <Button btnType='new-task-btn' onClick={handleAddTask}>+</Button>
-      </div>
+      </div>   
       {showForm && (
         <div className='task-form'>
           <form onSubmit={handleFormSubmit}>

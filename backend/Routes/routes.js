@@ -53,8 +53,8 @@ router.get("/getTodo",verifyToken,async (req, res) => {
   try {
     const user = req.user.userData;
     const username = user.username;
-    const allTasks = await Todo.find({ username: username, progress: 'in progress' });
-    res.json(allTasks);
+    const allTasks = await Todo.find({ username: username });
+    res.status(200).json(allTasks);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });

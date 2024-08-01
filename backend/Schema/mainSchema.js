@@ -14,7 +14,6 @@ const todoSchema = new Schema({
     username: { type: String },
     title: { type: String },
     description: { type: String },
-    progress:{ type: String},
   
 });
  
